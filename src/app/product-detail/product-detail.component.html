@@ -1,0 +1,27 @@
+<div *ngIf="product" class="product-detail container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="product.image" alt="{{ product.title }}" class="img-fluid product-detail-image" />
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="product-title">{{ product.title }}</h2>
+            <p class="product-description">{{ product.description }}</p>
+
+            <p class="product-price">Precio: <strong>${{ product.price }}</strong></p>
+
+            <p *ngIf="product.rating">
+                Calificación: <span class="badge badge-warning">{{ product.rating.rate }} ★</span>
+                <span>({{ product.rating.count }} opiniones)</span>
+            </p>
+
+            <a routerLink="/" class="btn btn-outline-primary mt-4">Volver al listado de productos</a>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!product" class="container mt-5">
+    <p class="text-center">Producto no encontrado</p>
+    <a routerLink="/" class="btn btn-outline-primary d-block mx-auto" style="max-width: 200px;">Volver al listado de
+        productos</a>
+</div>
